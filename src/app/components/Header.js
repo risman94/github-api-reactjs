@@ -14,6 +14,9 @@ export const Header = (props) => {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/user/10" activeClassName={"active"} activeStyle={{fontWeight: "bold", color: "#2196f3"}}>User</NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/github" activeStyle={{fontWeight: "bold", color: "#2196f3"}}>Github</NavLink>
+                        </li>
                     </ul>
                 </div>
             </div>

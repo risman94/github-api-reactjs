@@ -6,7 +6,7 @@ export class Home extends React.Component {
     super();
     this.state = {
       user: null,
-      value: "risman94"
+      value: ""
     };
   }
 
@@ -14,12 +14,11 @@ export class Home extends React.Component {
     this.setState({
       value: e.target.value
     });
-    console.log(this.state.value);
   }
 
-  componentDidMount() {
+  handle(e) {
+    e.preventDefault();
     const api = "https://api.github.com/search/users";
-    //const quest =  ;
     Axios.get(api + "?q=" + this.state.value)
       .then(response => {
         console.log(response.data.items);
@@ -33,17 +32,22 @@ export class Home extends React.Component {
   }
 
   render() {
+    // let filterUser;
+    // if (this.state.user !== null) {
+    //   filterUser = this.state.user.filter(user => {
+    //     return user.login.indexOf(this.state.value) !== -1;
+    //   });
+    // }
     return (
       <div className="container">
         <h3>Home</h3>
-        <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange.bind(this)}
-        />
+        <form onSubmit={this.handle.bind(this)}>
+          <input type="text" onChange={this.handleChange.bind(this)} />
+          <input type="submit" value="Submit" />
+        </form>
         {this.state.user !== null ? (
           this.state.user.map((tampil, index) => (
-            <div key={index}> {tampil.login} </div>
+            <div key={index}>{tampil.login}</div>
           ))
         ) : (
           <div> Loading .. </div>

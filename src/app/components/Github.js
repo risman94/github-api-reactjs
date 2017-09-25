@@ -18,7 +18,7 @@ export class Github extends React.Component {
           this.setState({
             username: response.data
           }),
-        5000
+        3000
       );
     });
   }

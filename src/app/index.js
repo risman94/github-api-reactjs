@@ -12,7 +12,7 @@ class App extends React.Component {
       <Router>
         <div>
           <Route path="/" component={Root} />
-          <Route path="/user/:id" component={User} />
+          <Route path="/user/:username" component={User} />
           <Route path="/home" component={Home} />
           <Route path="/github" component={Github} />
         </div>

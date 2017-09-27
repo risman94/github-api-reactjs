@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 
 let timeoutId;
 
@@ -48,8 +49,10 @@ export class Home extends React.Component {
     if (!this.state.fetch) {
       return this.state.user.map((tampil, index) => (
         <div key={index} className="col-md-3 thumbnail">
-          <h3>{tampil.login}</h3>
-          <img src={tampil.avatar_url} className="img-thumbnail" />
+          <Link to={`/user/${tampil.login}`}>
+            <h3>{tampil.login}</h3>
+            <img src={tampil.avatar_url} className="img-thumbnail" />
+          </Link>
         </div>
       ));
     } else {
@@ -59,7 +62,7 @@ export class Home extends React.Component {
   render() {
     return (
       <div className="container">
-        <h3>Home</h3>
+        <h3>Github API</h3>
         <input
           className="form-control"
           placeholder="Search user github ..."

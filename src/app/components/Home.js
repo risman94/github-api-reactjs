@@ -61,7 +61,7 @@ export class Home extends React.Component {
   }
   render() {
     return (
-      <div className="container">
+      <div style={{ paddingTop: "10px" }} className="container">
         <h3>Github API</h3>
         <input
           className="form-control"

@@ -40,11 +40,11 @@ export class User extends React.Component {
 
   onNavigateHome() {
     const history = createHistory;
-    this.props.history.push("/home");
+    this.props.history.push("/");
   }
   render() {
     return (
-      <div className="container">
+      <div style={{ paddingTop: "10px" }} className="container">
         <button
           onClick={this.onNavigateHome.bind(this)}
           className="btn btn-dark"
@@ -66,23 +66,21 @@ export class User extends React.Component {
           </p>
         </div>
         <div className="col-md-12">
-          {this.state.repos ? (
-            this.state.repos.map((index, tampil) => (
-              <div className="card col-md-6 repos" key={tampil}>
-                <div className="card-body">
-                  <a href={index.html_url} target="_blank">
-                    <h4>{index.name}</h4>
-                  </a>
-                  <p> {index.description} </p>
-                  <p>
-                    <small className="text-muted">{index.language}</small>
-                  </p>
+          {this.state.repos
+            ? this.state.repos.map((index, tampil) => (
+                <div className="card col-md-6 repos" key={tampil}>
+                  <div className="card-body">
+                    <a href={index.html_url} target="_blank">
+                      <h4>{index.name}</h4>
+                    </a>
+                    <p> {index.description} </p>
+                    <p>
+                      <small className="text-muted">{index.language}</small>
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))
-          ) : (
-            ""
-          )}
+              ))
+            : ""}
         </div>
       </div>
     );
